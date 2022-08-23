@@ -1,11 +1,7 @@
 import express, { Application, Response, Router } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import routes from './api/routes'
-
-// import apiRoute from './api/routes.js';
-
-// https://github.com/OlegAba/sneaker-bot-backend/blob/master/src/Server.ts
+import Routes from './api/Routes';
 
 class Server {
   public app: Application;
@@ -15,10 +11,10 @@ class Server {
   constructor() {
     dotenv.config();
     this.app = express();
-    this.routes = Router()
+    this.routes = Router();
     this.port = process.env.PORT || '8080';
-    this.routesConfig()
-    this.middlewareConfig()
+    this.routesConfig();
+    this.middlewareConfig();
   }
 
   public start(): void {
@@ -32,7 +28,7 @@ class Server {
       res.sendFile(__dirname + '/views/index.html');
     });
 
-    this.routes.use('/api', routes)
+    this.routes.use('/api', Routes);
   }
 
   private middlewareConfig(): void {
