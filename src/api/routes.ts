@@ -1,16 +1,11 @@
 import { Router } from "express";
+import Controller from "./Controller";
+import Validation from "./Validation";
 
-const apiRoute = Router()
+const routes = Router();
+const controller = new Controller();
 
-apiRoute.route('/:date').get((req, res) => {
-  const date = new Date(req.params.date)
-  console.log(date.toDateString())
+routes.route('/').get(controller.getCurrentDate);
+routes.route('/:date').get(Validation, controller.getTimestampDate);
 
-  res.json({ msg: 'temp'})
-});
-
-// const validateUnixDate = (timestamp) => {
-//   const date = new Date()
-// }
-
-export default apiRoute
+export default routes;
