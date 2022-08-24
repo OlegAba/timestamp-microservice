@@ -3,6 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Routes from './api/Routes';
 
+// https://www.youtube.com/watch?v=Gwru3BueuiE
+// https://www.youtube.com/watch?v=GJwHevf2wYE
+
 class Server {
   public app: Application;
   private routes: Router;
@@ -32,8 +35,13 @@ class Server {
   }
 
   private middlewareConfig(): void {
-    this.app.use(cors({optionsSuccessStatus: 200}));
-    this.app.use(express.static(__dirname + '/public'));
+    this.app.use(cors({ 
+      origin: 'http://localhost:3000',
+      credentials: true,
+      optionsSuccessStatus: 200
+    }))
+
+    // this.app.use(express.static(__dirname + '/public'));
     this.app.use('/', this.routes);
   }
 }
