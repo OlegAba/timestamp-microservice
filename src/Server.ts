@@ -1,6 +1,7 @@
 import express, { Application, Response, Router } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 import Routes from './api/Routes';
 
 // https://www.youtube.com/watch?v=Gwru3BueuiE
@@ -27,9 +28,9 @@ class Server {
   }
 
   private routesConfig(): void {
-    this.routes.get('/', (_, res: Response) => {
-      res.sendFile(__dirname + '/views/index.html');
-    });
+    // this.routes.get('/', (_, res: Response) => {
+    //   res.sendFile(__dirname + '/views/index.html');
+    // });
 
     this.routes.use('/api', Routes);
   }
@@ -41,7 +42,16 @@ class Server {
       optionsSuccessStatus: 200
     }))
 
+    if (process.env.NODE_ENV === 'production') {
+      this.app.use(express.static('client/build')); 
+
+      this.app.get('*', (_, res: Response) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+      });
+    }
+    
     // this.app.use(express.static(__dirname + '/public'));
+
     this.app.use('/', this.routes);
   }
 }
