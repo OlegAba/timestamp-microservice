@@ -2,7 +2,7 @@
   "name": "server-timestamp-microservice",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "Server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
     "client": "npm start --prefix client",
@@ -10,7 +10,8 @@
     "server": "nodemon src/Server.ts",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "tsc -p .",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
