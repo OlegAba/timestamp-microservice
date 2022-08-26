@@ -42,17 +42,19 @@ class Server {
       optionsSuccessStatus: 200
     }))
 
+    this.app.use('/', this.routes);
+
     if (process.env.NODE_ENV === 'production') {
-      this.app.use(express.static('client/build')); 
+      const buildPath = path.join(__dirname, '..', '..', 'client', 'build');
+
+      this.app.use(express.static(buildPath)); 
 
       this.app.get('*', (_, res: Response) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        res.sendFile(path.resolve(buildPath, 'index.html'));
       });
     }
     
     // this.app.use(express.static(__dirname + '/public'));
-
-    this.app.use('/', this.routes);
   }
 }
 
