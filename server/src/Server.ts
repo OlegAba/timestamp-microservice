@@ -42,6 +42,8 @@ class Server {
       optionsSuccessStatus: 200
     }))
 
+    this.app.use('/', this.routes);
+
     if (process.env.NODE_ENV === 'production') {
       const buildPath = path.join(__dirname, '..', '..', 'client', 'build');
 
@@ -53,8 +55,6 @@ class Server {
     }
     
     // this.app.use(express.static(__dirname + '/public'));
-
-    this.app.use('/', this.routes);
   }
 }
 
