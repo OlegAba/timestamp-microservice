@@ -10,6 +10,7 @@
     "server": "npm run server --prefix server",
     "install-all": "npm run client-install && npm run server-install",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "npm run start --prefix server",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "postinstall": "npm run server-install"
   },
