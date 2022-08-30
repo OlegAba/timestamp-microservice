@@ -9,22 +9,51 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-box-sizing:border-box; 
     -ms-box-sizing:border-box;
   }
+
   body {
     background: ${props => props.theme.colors.background};
     color: ${props => props.theme.colors.body};
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    transition: background 0.2s linear;
   }
+
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.title};
   }
+
   h1 {
     font-size: 40px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    margin-bottom: -20px;
     letter-spacing: 8px;
     text-transform: uppercase;
+  }
+
+  .max-width-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 25px 0 25px;
+  }
+
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
+  .header-container {
+    background: ${props => props.theme.colors.backgroundActive};
+    border-bottom: 2px solid ${props => props.theme.colors.secondaryAccent};
+    padding: 75px 0 75px 0;
+  }
+
+  .main-container {
+    padding: 40px 0 40px 0;
+  }
+
+  a {
+    color: ${props => props.theme.colors.accent};
+    text-decoration: none;
   }
 `;
