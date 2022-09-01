@@ -2,8 +2,10 @@ import React, { FunctionComponent } from 'react';
 import { StyledEndpointAccordion } from './EndpointAccordion.styled';
 import { EndpointParam, EndpointCode } from '../Endpoint.interface';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import { a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { tomorrowNightBlue } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 interface Props {
   active: boolean,
@@ -35,7 +37,7 @@ const EndpointAccordion: FunctionComponent<Props> = ({ active, isDarkMode, param
                 <p>{param.description}</p>
                   <SyntaxHighlighter 
                   language='javascript' 
-                  style={isDarkMode ? a11yDark : a11yLight}
+                  style={isDarkMode ? tomorrowNightBlue : tomorrow}
                   customStyle={{ padding: 15 }}>
                     {param.sampleInput}
                   </SyntaxHighlighter>
@@ -60,7 +62,7 @@ const EndpointAccordion: FunctionComponent<Props> = ({ active, isDarkMode, param
                 <p>{code.description}</p>
                 <SyntaxHighlighter 
                 language='javascript' 
-                style={isDarkMode ? a11yDark : a11yLight}
+                style={isDarkMode ? tomorrowNightBlue : tomorrow}
                 customStyle={{ padding: 15 }}>
                   {code.sampleRes}
                 </SyntaxHighlighter>

@@ -2,13 +2,14 @@ import React, { FunctionComponent, useState } from 'react';
 import { StyledEndpoint } from './Endpoint.styled';
 import EndpointButton from './endpointButton/EndpointButton';
 import EndpointAccordion from './endpointAccordion/EndpointAccordion';
-import { endpointParams, endpointCodes } from './Endpoint.interface';
+import { EndpointData } from './Endpoint.interface';
 
 interface Props {
   isDarkMode: boolean,
+  endpointData: EndpointData
 }
 
-const Endpoint: FunctionComponent<Props> = ({ isDarkMode }) => {
+const Endpoint: FunctionComponent<Props> = ({ isDarkMode, endpointData }) => {
 
   const [active, setActive] = useState(true);
 
@@ -20,16 +21,16 @@ const Endpoint: FunctionComponent<Props> = ({ isDarkMode }) => {
   return(
     <StyledEndpoint>
       <EndpointButton 
-        method='GET'
-        endpoint='/api/{date?}'
+        method={endpointData.method}
+        endpoint={endpointData.endpoint}
         active={active}
         onClick={buttonHandler}
       />
       <EndpointAccordion 
         active={active}
         isDarkMode={isDarkMode}
-        params={endpointParams}
-        codes={endpointCodes}
+        params={endpointData.params}
+        codes={endpointData.codes}
       />
     </StyledEndpoint>
   );

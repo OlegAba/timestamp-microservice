@@ -3,9 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { lightTheme, darkTheme } from './styles/Themes';
 import Header from './components/header/Header';
-import Main from './components/main/Main'
-
-// https://petstore.swagger.io/#/pet
+import Main from './components/main/Main';
 
 interface IProps {}
 

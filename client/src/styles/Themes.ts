@@ -12,30 +12,28 @@ const devices = {
 
 export const lightTheme: DefaultTheme = {
   colors: {
-    body: '#7b7b80',
-    title: '#1b1b1d',
-    button: '#707070',
-    buttonHover: 'black',
-    background: '#fafafd',
-    secondaryBackground: '#f3f3f6',
-    backgroundActive: '#e5e5ea',
-    accent: '#007aff',
-    secondaryAccent: '#c0d9f5'
+    body: '#3e5060',
+    title: '#0d1928',
+    background: '#ffffff',
+    secondaryBackground: '#fafafa',
+    border: '#f5f5f5',
+    secondaryBorder: '#dedfe0',
+    accent: '#2f8cf6',
+    secondaryAccent: '#f1f8fe'
   },
   devices: devices
 }
 
 export const darkTheme: DefaultTheme = {
   colors: {
-    body: '#8D8D8D',
-    title: '#F0F2F3',
-    button: '#707070',
-    buttonHover: '#F0F2F3',
-    background: '#141414',
-    secondaryBackground: '#171717',
-    backgroundActive: '#1b1b1b',
-    accent: '#0a84ff',
-    secondaryAccent: '#152a44'
+    body: '#bdbdbd',
+    title: '#ffffff',
+    background: '#0d1928',
+    secondaryBackground: '#0b1a2d',
+    border: '#1d2839',
+    secondaryBorder: '#293441',
+    accent: '#2f82f6',
+    secondaryAccent: '#192f4a',
   },
   devices: devices
 }

@@ -33,7 +33,7 @@ export const StyledEndpointAccordion = styled.div`
 
   .accordion-title-container {
     padding: 15px 0 15px 0;
-    border-bottom: 1px solid ${props => props.theme.colors.backgroundActive};
+    border-bottom: 1px solid ${props => props.theme.colors.secondaryBorder};
   }
 
   .accordion-col-left {

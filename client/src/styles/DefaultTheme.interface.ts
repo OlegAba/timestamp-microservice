@@ -5,11 +5,10 @@ declare module 'styled-components' {
     colors: {
       body: string,
       title: string,
-      button: string,
-      buttonHover: string,
       background: string,
       secondaryBackground: string,
-      backgroundActive: string,
+      border: string,
+      secondaryBorder: string,
       accent: string,
       secondaryAccent: string
     }

@@ -5,7 +5,7 @@ export const StyledMain = styled.div`
     vertical-align: bottom;
     line-height: 50px;
     display: flex;
-    border-bottom: 2px solid ${props => props.theme.colors.secondaryAccent};
+    border-bottom: 2px solid ${props => props.theme.colors.border};
 
     p {
       margin-left: 15px;
