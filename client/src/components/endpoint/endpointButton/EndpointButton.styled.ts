@@ -1,18 +1,20 @@
 import styled from "styled-components";
 
-export const StyledEndpointButton = styled.button`
-  width: 100%;
-  display: flex;
-  border-radius: 10px;
-  padding: 5px;
-  background: ${path => path.theme.colors.secondaryAccent};
-  border: none;
-  border-style: solid;
-  border-color: ${path => path.theme.colors.accent};
-  border-width: 1px;
-  cursor: pointer;
+export const StyledEndpointButton = styled.div`
+  button {
+    width: 100%;
+    display: flex;
+    border-radius: 10px;
+    padding: 5px;
+    background: ${path => path.theme.colors.secondaryAccent};
+    border: none;
+    border-style: solid;
+    border-color: ${path => path.theme.colors.accent};
+    border-width: 1px;
+    cursor: pointer;
+  }  
 
-  .open {
+  button.open {
     border: none;
     border-top: 1px solid ${path => path.theme.colors.accent};
     border-left: 1px solid ${path => path.theme.colors.accent};

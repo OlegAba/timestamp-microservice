@@ -42,7 +42,7 @@ class App extends Component<IProps, IState> {
           </div>
           <div className='main-container'>
             <div className='max-width-container'>
-                <Main />
+                <Main isDarkMode={this.state.isDarkMode} />
             </div>
           </div>
         </>

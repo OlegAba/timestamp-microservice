@@ -1,9 +1,14 @@
 import React, { FunctionComponent, useState } from 'react';
-// import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { StyledEndpoint } from './Endpoint.styled';
 import EndpointButton from './endpointButton/EndpointButton';
+import EndpointAccordion from './endpointAccordion/EndpointAccordion';
+import { endpointParams, endpointCodes } from './Endpoint.interface';
 
-const Endpoint: FunctionComponent = (props) => {
+interface Props {
+  isDarkMode: boolean,
+}
+
+const Endpoint: FunctionComponent<Props> = ({ isDarkMode }) => {
 
   const [active, setActive] = useState(true);
 
@@ -17,26 +22,15 @@ const Endpoint: FunctionComponent = (props) => {
       <EndpointButton 
         method='GET'
         endpoint='/api/{date?}'
-        active={active} 
+        active={active}
         onClick={buttonHandler}
       />
-
-      <div id='accordion' className={active ? "open" : ""}>
-        <h5>Parameters</h5>
-
-        <div className='accordion-main-container'>
-          <div className='accordion-title-container accordion-row'>
-            <h6 className='accordion-left'>Name</h6>
-            <h6 className='accordion-right'>Description</h6>
-          </div>
-
-          <div className='accordion-row accordion-left'>
-            <h4>date</h4>
-            <code>string</code>
-            <p>(path)</p>
-          </div>
-        </div>
-      </div>
+      <EndpointAccordion 
+        active={active}
+        isDarkMode={isDarkMode}
+        params={endpointParams}
+        codes={endpointCodes}
+      />
     </StyledEndpoint>
   );
 }

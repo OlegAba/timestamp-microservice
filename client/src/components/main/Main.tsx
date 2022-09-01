@@ -2,7 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { StyledMain } from './Main.styled';
 import Endpoint from '../endpoint/Endpoint';
 
-const Main: FunctionComponent = (props) => {
+interface Props {
+  isDarkMode: boolean,
+}
+
+const Main: FunctionComponent<Props> = ({ isDarkMode }) => {
 
   return(
     <StyledMain>
@@ -11,7 +15,7 @@ const Main: FunctionComponent = (props) => {
         <p>returns a JSON object with a Unix and UTC timestamp</p>
       </div>
       <div className='endpoint-container'>
-        <Endpoint />
+        <Endpoint isDarkMode={isDarkMode} />
       </div>
     </StyledMain>
   );

@@ -17,14 +17,16 @@ const EndpointButton: FunctionComponent<Props> = ({
 }) => {
 
   return(
-    <StyledEndpointButton onClick={onClick} className={active ? "open" : ""}>
-      <span>{method}</span>
-      <code>{endpoint}</code>
-      <div>
-        {active 
-        ? <RiArrowUpSLine className='icon-arrow' size='30px' />
-        : <RiArrowDownSLine id='icon-arrow' size='30px' />}
-      </div>
+    <StyledEndpointButton>
+      <button onClick={onClick} className={active ? "open" : ""}>
+        <span>{method}</span>
+        <code>{endpoint}</code>
+        <div>
+          {active 
+          ? <RiArrowUpSLine className='icon-arrow' size='30px' />
+          : <RiArrowDownSLine className='icon-arrow' size='30px' />}
+        </div>
+      </button>
     </StyledEndpointButton>
   );
 }
