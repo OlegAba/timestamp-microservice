@@ -1,36 +1,39 @@
 import React, { FunctionComponent, useState } from 'react';
 import { StyledEndpoint } from './Endpoint.styled';
-import EndpointButton from './endpointButton/EndpointButton';
-import EndpointAccordion from './endpointAccordion/EndpointAccordion';
-import { endpointParams, endpointCodes } from './Endpoint.interface';
+import EndpointMethod from './endpointMethod/EndpointMethod';
+import { EndpointData, MethodData } from './Endpoint.interface';
 
 interface Props {
+  active: boolean,
   isDarkMode: boolean,
+  endpointData: EndpointData,
+  onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
-const Endpoint: FunctionComponent<Props> = ({ isDarkMode }) => {
-
-  const [active, setActive] = useState(true);
-
-  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    setActive(!active)
-  };
+const Endpoint: FunctionComponent<Props> = ({ 
+  active,
+  isDarkMode,
+  endpointData,
+  onClick 
+}) => {
 
   return(
     <StyledEndpoint>
-      <EndpointButton 
-        method='GET'
-        endpoint='/api/{date?}'
-        active={active}
-        onClick={buttonHandler}
-      />
-      <EndpointAccordion 
-        active={active}
-        isDarkMode={isDarkMode}
-        params={endpointParams}
-        codes={endpointCodes}
-      />
+      <div className='title-container noselect'>
+        <h2>{endpointData.name}</h2>
+        <p>{endpointData.description}</p>
+      </div>
+
+      {endpointData.methodsData.map((methodData: MethodData, index: number) => 
+        <div className='methods-container' key={index}>
+          <EndpointMethod 
+            active={active}
+            isDarkMode={isDarkMode}
+            data={methodData}
+            onClick={onClick}
+          />
+        </div>
+      )}
     </StyledEndpoint>
   );
 }

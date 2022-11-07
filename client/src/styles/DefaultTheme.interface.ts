@@ -1,16 +1,23 @@
 import 'styled-components';
 
+interface AccentColor {
+  blue: string,
+  red: string,
+  green: string,
+  yellow: string
+}
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       body: string,
       title: string,
-      button: string,
-      buttonHover: string,
       background: string,
       secondaryBackground: string,
-      backgroundActive: string,
-      accent: string,
+      border: string,
+      secondaryBorder: string,
+      link: string,
+      accent: AccentColor,
       secondaryAccent: string
     }
     devices: {

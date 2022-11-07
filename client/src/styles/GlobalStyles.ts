@@ -22,8 +22,6 @@ export const GlobalStyles = createGlobalStyle`
 
   h1 {
     font-size: 40px;
-    letter-spacing: 8px;
-    text-transform: uppercase;
   }
 
   .max-width-container {
@@ -43,8 +41,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .header-container {
-    background: ${props => props.theme.colors.backgroundActive};
-    border-bottom: 2px solid ${props => props.theme.colors.secondaryAccent};
+    background: ${props => props.theme.colors.secondaryBackground};
+    border-bottom: 2px solid ${props => props.theme.colors.border};
     padding: 75px 0 75px 0;
   }
 
@@ -53,7 +51,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.link};
     text-decoration: none;
   }
 `;
