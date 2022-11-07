@@ -3,12 +3,14 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './styles/GlobalStyles';
 import { lightTheme, darkTheme } from './styles/Themes';
 import Header from './components/header/Header';
-import Main from './components/main/Main';
+import Endpoint from './components/endpoint/Endpoint';
+import { dateEndpointData } from './Data';
 
 interface IProps {}
 
 interface IState {
-  isDarkMode: boolean
+  isDarkMode: boolean,
+  active: boolean
 }
 
 class App extends Component<IProps, IState> {
@@ -17,14 +19,20 @@ class App extends Component<IProps, IState> {
     super(props);
 
     this.state = {
-      isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches
+      isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+      active: true
     }
-  }
+  };
 
   componentDidMount() {
     const handler = (event: MediaQueryListEvent) => this.setState({ isDarkMode: event.matches });
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handler);
-  }
+  };
+
+  buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    this.setState({ active: !this.state.active })
+  };
 
   render() {
     const theme = this.state.isDarkMode ? darkTheme : lightTheme;
@@ -38,16 +46,21 @@ class App extends Component<IProps, IState> {
               <Header title={ 'Timestamp API' }/>
             </div>
           </div>
+
           <div className='main-container'>
             <div className='max-width-container'>
-                <Main isDarkMode={this.state.isDarkMode} />
+              <Endpoint
+                active={this.state.active} 
+                isDarkMode={this.state.isDarkMode} 
+                endpointData={dateEndpointData}
+                onClick={this.buttonHandler}
+              />
             </div>
           </div>
         </>
       </ThemeProvider>
     );
-  }
-
+  };
 }
 
 export default App;

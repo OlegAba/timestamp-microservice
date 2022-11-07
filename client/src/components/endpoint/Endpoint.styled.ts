@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledMain = styled.div`
+export const StyledEndpoint = styled.div`
   .title-container {
     vertical-align: bottom;
     line-height: 50px;
@@ -12,7 +12,7 @@ export const StyledMain = styled.div`
     }
   }
 
-  .endpoint-container {
-    padding: 10px 0 10px 0;
+  .methods-container {
+    margin-top: 10px;
   }
 `;

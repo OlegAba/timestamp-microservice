@@ -18,7 +18,13 @@ export const lightTheme: DefaultTheme = {
     secondaryBackground: '#fafafa',
     border: '#f5f5f5',
     secondaryBorder: '#dedfe0',
-    accent: '#2f8cf6',
+    link: '#2f8cf6',
+    accent: {
+      blue: '#3587cb',
+      red: '#c33f38',
+      green: '#467a3b',
+      yellow: '#de742d',
+    },
     secondaryAccent: '#f1f8fe'
   },
   devices: devices
@@ -32,7 +38,13 @@ export const darkTheme: DefaultTheme = {
     secondaryBackground: '#0b1a2d',
     border: '#1d2839',
     secondaryBorder: '#293441',
-    accent: '#2f82f6',
+    link: '#2f82f6',
+    accent: {
+      blue: '#4e96d1',
+      red: '#ca544e',
+      green: '#63985a',
+      yellow: '#e99048'
+    },
     secondaryAccent: '#192f4a',
   },
   devices: devices

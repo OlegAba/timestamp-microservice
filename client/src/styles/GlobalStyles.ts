@@ -51,7 +51,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   a {
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.theme.colors.link};
     text-decoration: none;
   }
 `;
