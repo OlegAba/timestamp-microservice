@@ -45,6 +45,8 @@ class Server {
     this.app.use('/', this.routes);
 
     if (process.env.NODE_ENV === 'production') {
+      console.log("RUNNING IN PRODUCTION")
+
       const buildPath = path.join(__dirname, '..', '..', 'client', 'build');
 
       this.app.use(express.static(buildPath)); 
