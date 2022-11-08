@@ -4,9 +4,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 import Routes from './api/Routes';
 
-// https://www.youtube.com/watch?v=Gwru3BueuiE
-// https://www.youtube.com/watch?v=GJwHevf2wYE
-
 class Server {
   public app: Application;
   private routes: Router;
@@ -28,10 +25,6 @@ class Server {
   }
 
   private routesConfig(): void {
-    // this.routes.get('/', (_, res: Response) => {
-    //   res.sendFile(__dirname + '/views/index.html');
-    // });
-
     this.routes.use('/api', Routes);
   }
 
@@ -55,8 +48,6 @@ class Server {
         res.sendFile(path.resolve(buildPath, 'index.html'));
       });
     }
-    
-    // this.app.use(express.static(__dirname + '/public'));
   }
 }
 
