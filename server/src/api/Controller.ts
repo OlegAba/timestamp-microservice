@@ -2,11 +2,11 @@ import { Request, Response} from 'express';
 import * as ServerResponse from './ServerResponse'
 
 interface TimestampDate {
-  [index: string]: string;   
+  [index: string]: string | number;   
 }
 
 function formatDate(d: Date): TimestampDate {
-  const unix = Math.floor(d.getTime()).toString();
+  const unix = Math.floor(d.getTime());
   const utc = d.toUTCString();
   const td: TimestampDate = { unix: unix, utc: utc };
   return td;
