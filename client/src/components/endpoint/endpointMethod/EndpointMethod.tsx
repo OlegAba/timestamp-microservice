@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { StyledEndpointMethod } from './EndpointMethod.styled';
@@ -11,16 +11,21 @@ import {
 interface Props {
   active: boolean,
   isDarkMode: boolean,
-  data: MethodData,
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  data: MethodData
 }
 
 const EndpointMethod: FunctionComponent<Props> = ({
   active,
   isDarkMode,
-  data,
-  onClick 
+  data 
 }) => {
+
+  const [isActive, setIsActive] = useState(active);
+
+  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setIsActive(!isActive)
+  };
 
   const methodColor = (method: Method): string => {
     const className = '-accent';
@@ -50,7 +55,7 @@ const EndpointMethod: FunctionComponent<Props> = ({
   return(
     <StyledEndpointMethod>
       <div className={methodColor(data.method)}>
-        <button onClick={onClick} className={active ? "open" : ""}>
+        <button onClick={buttonHandler} className={isActive ? "open" : ""}>
           <span>{data.method}</span>
           <code>{data.endpoint}</code>
           <div>
@@ -60,7 +65,7 @@ const EndpointMethod: FunctionComponent<Props> = ({
           </div>
         </button>
 
-        <div id='accordion' className={active ? "open" : ""}>
+        <div id='accordion' className={isActive ? "open" : ""}>
           <div className={data.params.length === 0 ? 'hidden' : ''}>
             <h5>Parameters</h5>
             <div className='accordion-section-container'>

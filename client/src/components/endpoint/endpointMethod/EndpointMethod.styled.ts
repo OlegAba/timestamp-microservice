@@ -192,4 +192,16 @@ export const StyledEndpointMethod = styled.div`
     height: 0;
     overflow: hidden;
   }
+
+  @media ${props => props.theme.devices.mobileL} {
+    button code {
+      font-size: 15px;
+      line-height: 30px;
+      margin-left: 10px;
+    }
+
+    .accordion-col-left {
+      width: 100px;
+    }
+  }
 `;
