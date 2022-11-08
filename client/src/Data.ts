@@ -2,7 +2,7 @@ import { EndpointData, Method } from './components/endpoint/Endpoint.interface';
 
 export const dateEndpointData: EndpointData = {
   name: 'date',
-  description: 'returns a JSON object with a Unix and UTC timestamp',
+  description: 'Returns a JSON object with a Unix and UTC timestamp',
   methodsData: [
     {
       method: Method.GET,

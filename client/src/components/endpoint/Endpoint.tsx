@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { StyledEndpoint } from './Endpoint.styled';
 import EndpointMethod from './endpointMethod/EndpointMethod';
 import { EndpointData, MethodData } from './Endpoint.interface';
@@ -7,14 +7,12 @@ interface Props {
   active: boolean,
   isDarkMode: boolean,
   endpointData: EndpointData,
-  onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const Endpoint: FunctionComponent<Props> = ({ 
   active,
   isDarkMode,
-  endpointData,
-  onClick 
+  endpointData 
 }) => {
 
   return(
@@ -30,7 +28,6 @@ const Endpoint: FunctionComponent<Props> = ({
             active={active}
             isDarkMode={isDarkMode}
             data={methodData}
-            onClick={onClick}
           />
         </div>
       )}

@@ -10,7 +10,6 @@ interface IProps {}
 
 interface IState {
   isDarkMode: boolean,
-  active: boolean
 }
 
 class App extends Component<IProps, IState> {
@@ -19,19 +18,13 @@ class App extends Component<IProps, IState> {
     super(props);
 
     this.state = {
-      isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
-      active: true
+      isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches
     }
   };
 
   componentDidMount() {
     const handler = (event: MediaQueryListEvent) => this.setState({ isDarkMode: event.matches });
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handler);
-  };
-
-  buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    this.setState({ active: !this.state.active })
   };
 
   render() {
@@ -50,10 +43,9 @@ class App extends Component<IProps, IState> {
           <div className='main-container'>
             <div className='max-width-container'>
               <Endpoint
-                active={this.state.active} 
+                active={true} 
                 isDarkMode={this.state.isDarkMode} 
                 endpointData={dateEndpointData}
-                onClick={this.buttonHandler}
               />
             </div>
           </div>

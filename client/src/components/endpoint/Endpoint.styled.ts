@@ -15,4 +15,19 @@ export const StyledEndpoint = styled.div`
   .methods-container {
     margin-top: 10px;
   }
+
+  @media ${props => props.theme.devices.mobileL} {
+    .title-container {
+      flex-wrap: wrap;
+      line-height: 200%;
+
+      h2 {
+        width: 100%;
+      }
+
+      p {
+        margin-left: 0;
+      }
+    }
+  }
 `;
