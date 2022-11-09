@@ -30,7 +30,10 @@ class Server {
 
   private middlewareConfig(): void {
     this.app.use(cors({ 
-      origin: 'http://localhost:3000',
+      origin: [
+        'http://localhost:3000',
+        'https://www.freecodecamp.org'
+      ],
       credentials: true,
       optionsSuccessStatus: 200
     }))
