@@ -1,4 +1,5 @@
 # Timestamp Microservice
+[Live Server Example](https://timestamp-microservice.fly.dev)
 
 ## Installation
 We use [NPM](https://www.npmjs.com/get-npm) for our dependency manager. This should be installed before continuing.
